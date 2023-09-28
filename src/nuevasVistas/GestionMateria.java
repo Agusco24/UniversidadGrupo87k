@@ -291,11 +291,7 @@ public class GestionMateria extends javax.swing.JInternalFrame {
     }
 
     private boolean validarCampos() {
-        if(jtAnio.getText().isEmpty() || jtNombre.getText().isEmpty()){
-            return true;
-        }else{
-            return false;
-        }
+        return jtAnio.getText().isEmpty() || jtNombre.getText().isEmpty();
     }
 
 }

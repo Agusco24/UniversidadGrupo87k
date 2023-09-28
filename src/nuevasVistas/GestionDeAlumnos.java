@@ -27,6 +27,8 @@ public class GestionDeAlumnos extends javax.swing.JInternalFrame {
      */
     public GestionDeAlumnos() {
         initComponents();
+        validarBuscar();
+
     }
 
     /**
@@ -149,6 +151,9 @@ public class GestionDeAlumnos extends javax.swing.JInternalFrame {
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 60, 170, 390));
 
         jtDocumento.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jtDocumentoKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jtDocumentoKeyTyped(evt);
             }
@@ -204,6 +209,7 @@ public class GestionDeAlumnos extends javax.swing.JInternalFrame {
     private void jbNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevoActionPerformed
         // TODO add your handling code here:
         borrarCampos();
+
     }//GEN-LAST:event_jbNuevoActionPerformed
 
     private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
@@ -250,14 +256,18 @@ public class GestionDeAlumnos extends javax.swing.JInternalFrame {
 
     private void jtDocumentoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtDocumentoKeyTyped
         // TODO add your handling code here:
+       
         if (Character.isLetter(evt.getKeyChar())) {
             evt.consume();
+             
         }
-
+ 
         if (evt.getKeyChar() == KeyEvent.VK_SPACE) {
             evt.consume();
+             
 
         }
+     
     }//GEN-LAST:event_jtDocumentoKeyTyped
 
     private void jtApellidoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtApellidoKeyTyped
@@ -273,6 +283,12 @@ public class GestionDeAlumnos extends javax.swing.JInternalFrame {
             evt.consume();
         }
     }//GEN-LAST:event_jtNombreKeyTyped
+
+    private void jtDocumentoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtDocumentoKeyReleased
+        // TODO add your handling code here:
+        validarCampos();
+         validarBuscar();
+    }//GEN-LAST:event_jtDocumentoKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -303,6 +319,24 @@ public class GestionDeAlumnos extends javax.swing.JInternalFrame {
         jrbEstado.setSelected(false);
         jdFechaNacimiento.setDateFormatString("");
 
+    }
+
+    private boolean validarCampos() {
+        if (jtApellido.getText().isEmpty() || jtDocumento.getText().isEmpty() || jtNombre.getText().isEmpty()) {
+            
+        }
+       
+        return false;
+
+    }
+
+    private void validarBuscar() {
+
+        if (jtDocumento.getText().isEmpty()) {
+            jbBuscar.setEnabled(false);
+        } else {
+            jbBuscar.setEnabled(true);
+        }
     }
 
 }

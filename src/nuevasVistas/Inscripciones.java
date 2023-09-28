@@ -100,6 +100,7 @@ public class Inscripciones extends javax.swing.JInternalFrame {
                 "ID", "Nombre", "Año"
             }
         ));
+        jtMaterias.setEnabled(false);
         jScrollPane1.setViewportView(jtMaterias);
 
         jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 690, 150));

@@ -129,6 +129,7 @@ public class Alumnospormateria extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
+        jtAlumnos.setEnabled(false);
         jScrollPane2.setViewportView(jtAlumnos);
 
         jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 650, 130));

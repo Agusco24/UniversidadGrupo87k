@@ -196,6 +196,7 @@ private void llenarCombo() {
         modelo.addColumn("Nota");
 
         jtMaterias.setModel(modelo);
+        
 
     }
 
