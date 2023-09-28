@@ -99,6 +99,7 @@ public class Alumnospormateria extends javax.swing.JInternalFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jPanel2.setBackground(java.awt.Color.gray);
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "LISTADO DE ALUMNOS POR MATERIA", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Candara Light", 1, 14), new java.awt.Color(0, 0, 0))); // NOI18N
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -108,8 +109,9 @@ public class Alumnospormateria extends javax.swing.JInternalFrame {
                 jbSalirActionPerformed(evt);
             }
         });
-        jPanel2.add(jbSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 300, 120, -1));
+        jPanel2.add(jbSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 410, 120, -1));
 
+        jtAlumnos.setBackground(new java.awt.Color(255, 255, 255));
         jtAlumnos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -132,23 +134,23 @@ public class Alumnospormateria extends javax.swing.JInternalFrame {
         jtAlumnos.setEnabled(false);
         jScrollPane2.setViewportView(jtAlumnos);
 
-        jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 650, 130));
+        jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 710, 180));
 
         jcbMaterias.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jcbMateriasActionPerformed(evt);
             }
         });
-        jPanel2.add(jcbMaterias, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 50, 340, -1));
+        jPanel2.add(jcbMaterias, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 120, 340, -1));
 
         jLabel2.setText("SELECCIONE UNA MATERIA");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 190, -1));
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, 190, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 749, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -157,7 +159,7 @@ public class Alumnospormateria extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 378, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 548, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)

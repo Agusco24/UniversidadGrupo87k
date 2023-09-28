@@ -47,19 +47,22 @@ public class Actualizaciondenotas extends javax.swing.JInternalFrame {
         jbSalir = new javax.swing.JButton();
         jbGuardar = new javax.swing.JButton();
 
+        jPanel1.setBackground(java.awt.Color.gray);
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "CARGA DE NOTAS", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Calibri Light", 1, 14), new java.awt.Color(0, 0, 0))); // NOI18N
+        jPanel1.setForeground(java.awt.Color.gray);
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("SELECCIONE EL ALUMNO");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, -1, -1));
 
         jcbAlumnos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jcbAlumnosActionPerformed(evt);
             }
         });
-        jPanel1.add(jcbAlumnos, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 60, 320, -1));
+        jPanel1.add(jcbAlumnos, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 110, 320, -1));
 
+        jtMaterias.setBackground(new java.awt.Color(255, 255, 255));
         jtMaterias.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -88,7 +91,7 @@ public class Actualizaciondenotas extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(jtMaterias);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 630, 130));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 690, 190));
 
         jbSalir.setText("SALIR");
         jbSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -96,7 +99,7 @@ public class Actualizaciondenotas extends javax.swing.JInternalFrame {
                 jbSalirActionPerformed(evt);
             }
         });
-        jPanel1.add(jbSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 280, 120, -1));
+        jPanel1.add(jbSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 460, 120, -1));
 
         jbGuardar.setText("GUARDAR");
         jbGuardar.addActionListener(new java.awt.event.ActionListener() {
@@ -104,19 +107,19 @@ public class Actualizaciondenotas extends javax.swing.JInternalFrame {
                 jbGuardarActionPerformed(evt);
             }
         });
-        jPanel1.add(jbGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 280, 120, -1));
+        jPanel1.add(jbGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 460, 120, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 698, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 749, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 372, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 542, Short.MAX_VALUE))
         );
 
         pack();

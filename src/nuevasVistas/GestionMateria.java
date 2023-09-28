@@ -48,10 +48,12 @@ public class GestionMateria extends javax.swing.JInternalFrame {
         jrbEstado = new javax.swing.JRadioButton();
         jbBuscar = new javax.swing.JButton();
 
+        jPanel1.setBackground(java.awt.Color.gray);
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "MATERIA", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Candara Light", 1, 14), new java.awt.Color(0, 0, 0))); // NOI18N
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBackground(new java.awt.Color(0, 102, 102));
+        jPanel2.setBackground(new java.awt.Color(102, 102, 102));
+        jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel2.setPreferredSize(new java.awt.Dimension(170, 450));
 
         jbNuevo.setText("NUEVO");
@@ -97,24 +99,25 @@ public class GestionMateria extends javax.swing.JInternalFrame {
                     .addComponent(jbGuardar, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE)
                     .addComponent(jbEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jbSalir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(33, 33, 33))
+                .addGap(29, 29, 29))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(46, 46, 46)
                 .addComponent(jbNuevo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
+                .addGap(40, 40, 40)
                 .addComponent(jbGuardar)
-                .addGap(76, 76, 76)
+                .addGap(40, 40, 40)
                 .addComponent(jbEliminar)
-                .addGap(77, 77, 77)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 106, Short.MAX_VALUE)
                 .addComponent(jbSalir)
                 .addGap(46, 46, 46))
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 60, -1, -1));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 70, 170, 410));
 
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("CÓDIGO");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, 50, 20));
 
@@ -125,6 +128,7 @@ public class GestionMateria extends javax.swing.JInternalFrame {
         });
         jPanel1.add(jtCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 160, 233, 30));
 
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("NOMBRE");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, 72, 20));
 
@@ -135,6 +139,7 @@ public class GestionMateria extends javax.swing.JInternalFrame {
         });
         jPanel1.add(jtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 230, 233, 30));
 
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("AÑO");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 300, -1, 20));
 
@@ -145,6 +150,7 @@ public class GestionMateria extends javax.swing.JInternalFrame {
         });
         jPanel1.add(jtAnio, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 300, 233, 30));
 
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("ESTADO");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 360, -1, 20));
         jPanel1.add(jrbEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 360, -1, 30));
@@ -156,7 +162,7 @@ public class GestionMateria extends javax.swing.JInternalFrame {
                 jbBuscarActionPerformed(evt);
             }
         });
-        jPanel1.add(jbBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 160, 117, 40));
+        jPanel1.add(jbBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 160, 110, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

@@ -46,7 +46,6 @@ public class Menuvistas extends javax.swing.JFrame {
         jMenu6 = new javax.swing.JMenu();
         jMalumnospormateria = new javax.swing.JMenuItem();
         jMmanipulaciondenotas = new javax.swing.JMenuItem();
-        jMsalir = new javax.swing.JMenu();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -67,27 +66,31 @@ public class Menuvistas extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidadgrupo87/titulo.JPG"))); // NOI18N
-        jLabel2.setText("jLabel2");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 600, 230, 160));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nuevasVistas/logo_ULP.png"))); // NOI18N
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 570, 230, 160));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 240, 770));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidadgrupo87/Banner 2.JPG"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nuevasVistas/Banner 2.JPG"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, -10, 840, 110));
+
+        escritorio.setBackground(java.awt.SystemColor.activeCaption);
+        escritorio.setPreferredSize(new java.awt.Dimension(741, 571));
 
         javax.swing.GroupLayout escritorioLayout = new javax.swing.GroupLayout(escritorio);
         escritorio.setLayout(escritorioLayout);
         escritorioLayout.setHorizontalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 840, Short.MAX_VALUE)
+            .addGap(0, 790, Short.MAX_VALUE)
         );
         escritorioLayout.setVerticalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 670, Short.MAX_VALUE)
+            .addGap(0, 600, Short.MAX_VALUE)
         );
 
-        getContentPane().add(escritorio, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 90, 840, 670));
+        getContentPane().add(escritorio, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 130, 790, 600));
+
+        jMenuBar1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jMenu4.setText("Alumno");
 
@@ -145,14 +148,6 @@ public class Menuvistas extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu6);
 
-        jMsalir.setText("Salir");
-        jMsalir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMsalirActionPerformed(evt);
-            }
-        });
-        jMenuBar1.add(jMsalir);
-
         setJMenuBar(jMenuBar1);
 
         pack();
@@ -187,11 +182,6 @@ public class Menuvistas extends javax.swing.JFrame {
         apm.setVisible(true);
         cargarPanel(apm);
     }//GEN-LAST:event_jMalumnospormateriaActionPerformed
-
-    private void jMsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMsalirActionPerformed
-        dispose();
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMsalirActionPerformed
 
     private void jMmanipulaciondenotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMmanipulaciondenotasActionPerformed
         // TODO add your handling code here:
@@ -253,7 +243,6 @@ public class Menuvistas extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMformulariomateria;
     private javax.swing.JMenuItem jMmanejodeinscripciones;
     private javax.swing.JMenuItem jMmanipulaciondenotas;
-    private javax.swing.JMenu jMsalir;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
     // End of variables declaration//GEN-END:variables
