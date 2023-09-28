@@ -23,7 +23,6 @@ public class Actualizaciondenotas extends javax.swing.JInternalFrame {
 
     DefaultTableModel modelo = new DefaultTableModel();
     private boolean validarBorrar = false;
-    
 
     /**
      * Creates new form Actualizaciondenotas
@@ -158,18 +157,23 @@ public class Actualizaciondenotas extends javax.swing.JInternalFrame {
         Materia mat = new Materia();
         InscripcionData insc = new InscripcionData();
         MateriaData materiaData = new MateriaData();
-        
-        alum = (Alumno) jcbAlumnos.getSelectedItem();
-        int fila = jtMaterias.getSelectedRow();
-        int idMateriaTabla = (int) jtMaterias.getValueAt(fila, 0);
-        mat = materiaData.buscarMateria(idMateriaTabla);
+        try {
+            alum = (Alumno) jcbAlumnos.getSelectedItem();
+            int fila = jtMaterias.getSelectedRow();
+            int idMateriaTabla = (int) jtMaterias.getValueAt(fila, 0);
+            mat = materiaData.buscarMateria(idMateriaTabla);
 
-        double nota = Double.parseDouble(jtMaterias.getValueAt(fila, 2).toString());
-        if (nota > 0 && nota <= 10) {
-            insc.guardarNota(alum.getIdAlumno(), mat.getIdMateria(), nota);
-        } else {
-            JOptionPane.showMessageDialog(null, "La nota debe ser entre 1 y 10");
+            double nota = Double.parseDouble(jtMaterias.getValueAt(fila, 2).toString());
+            if (nota > 0 && nota <= 10) {
+                insc.guardarNota(alum.getIdAlumno(), mat.getIdMateria(), nota);
+            } else {
+                JOptionPane.showMessageDialog(null, "La nota debe ser entre 1 y 10");
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Fila no seleccionada");
         }
+
     }//GEN-LAST:event_jbGuardarActionPerformed
 
     private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
@@ -214,5 +218,5 @@ private void llenarCombo() {
             modelo.removeRow(f);
         }
     }
-    
+
 }

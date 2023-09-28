@@ -7,6 +7,7 @@ package nuevasVistas;
 
 import java.util.ArrayList;
 import javax.swing.ButtonGroup;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import universidadgrupo87.accesoADatos.AlumnoData;
 import universidadgrupo87.accesoADatos.InscripcionData;
@@ -175,34 +176,45 @@ public class Inscripciones extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         InscripcionData insData = new InscripcionData();
         MateriaData matData = new MateriaData();
-        
+
         Alumno alum = new Alumno();
         Materia mat = new Materia();
-        
-        
-        int fila = jtMaterias.getSelectedRow();
-        int idMateriaTabla = (int) jtMaterias.getValueAt(fila, 0);
-  
-        alum = (Alumno) jcbAlumnos.getSelectedItem();
-        mat = matData.buscarMateria(idMateriaTabla);
-        
-        Inscripcion ins = new Inscripcion(alum, mat, 0);
-        insData.guardarInscripcion(ins);
-        
-        recuperarAlumno();
+
+        try {
+            int fila = jtMaterias.getSelectedRow();
+
+            int idMateriaTabla = (int) jtMaterias.getValueAt(fila, 0);
+
+            alum = (Alumno) jcbAlumnos.getSelectedItem();
+            mat = matData.buscarMateria(idMateriaTabla);
+
+            Inscripcion ins = new Inscripcion(alum, mat, 0);
+            insData.guardarInscripcion(ins);
+
+            recuperarAlumno();
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Fila no seleccionada");
+        }
+
     }//GEN-LAST:event_jbInscribirActionPerformed
 
     private void jbAnularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAnularActionPerformed
         // TODO add your handling code here:
         Alumno alum = new Alumno();
         InscripcionData insData = new InscripcionData();
-       
-        
-        int fila = jtMaterias.getSelectedRow();
-        int idMateriaTabla = (int) jtMaterias.getValueAt(fila, 0);
-        alum = (Alumno) jcbAlumnos.getSelectedItem();
-        insData.borrarInscripcion(alum.getIdAlumno(), idMateriaTabla);
-        recuperarAlumno();
+
+        try {
+            int fila = jtMaterias.getSelectedRow();
+            int idMateriaTabla = (int) jtMaterias.getValueAt(fila, 0);
+            alum = (Alumno) jcbAlumnos.getSelectedItem();
+            insData.borrarInscripcion(alum.getIdAlumno(), idMateriaTabla);
+            recuperarAlumno();
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Fila no seleccionada");
+        }
+
     }//GEN-LAST:event_jbAnularActionPerformed
 
     private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
