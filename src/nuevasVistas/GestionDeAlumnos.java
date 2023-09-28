@@ -247,6 +247,7 @@ public class GestionDeAlumnos extends javax.swing.JInternalFrame {
         } else {
             JOptionPane.showMessageDialog(null, "Campos vacios");
         }
+        borrarCampos();
 
 
     }//GEN-LAST:event_jbGuardarActionPerformed

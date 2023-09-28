@@ -6,6 +6,7 @@
 package nuevasVistas;
 
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import universidadgrupo87.accesoADatos.AlumnoData;
 import universidadgrupo87.accesoADatos.InscripcionData;
@@ -22,6 +23,7 @@ public class Actualizaciondenotas extends javax.swing.JInternalFrame {
 
     DefaultTableModel modelo = new DefaultTableModel();
     private boolean validarBorrar = false;
+    
 
     /**
      * Creates new form Actualizaciondenotas
@@ -127,9 +129,10 @@ public class Actualizaciondenotas extends javax.swing.JInternalFrame {
 
     private void jcbAlumnosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbAlumnosActionPerformed
         // TODO add your handling code here:
-        ArrayList<Inscripcion> inscripciones = new ArrayList<>();
+
         Alumno alum = (Alumno) jcbAlumnos.getSelectedItem();
         InscripcionData ins = new InscripcionData();
+        ArrayList<Inscripcion> inscripciones = new ArrayList<>();
         inscripciones = (ArrayList<Inscripcion>) ins.obtenerInscripcionesPorAlumno(alum.getIdAlumno());
 
         if (validarBorrar) {
@@ -155,14 +158,18 @@ public class Actualizaciondenotas extends javax.swing.JInternalFrame {
         Materia mat = new Materia();
         InscripcionData insc = new InscripcionData();
         MateriaData materiaData = new MateriaData();
-
+        
         alum = (Alumno) jcbAlumnos.getSelectedItem();
         int fila = jtMaterias.getSelectedRow();
         int idMateriaTabla = (int) jtMaterias.getValueAt(fila, 0);
         mat = materiaData.buscarMateria(idMateriaTabla);
 
         double nota = Double.parseDouble(jtMaterias.getValueAt(fila, 2).toString());
-        insc.guardarNota(alum.getIdAlumno(), mat.getIdMateria(), nota);
+        if (nota > 0 && nota <= 10) {
+            insc.guardarNota(alum.getIdAlumno(), mat.getIdMateria(), nota);
+        } else {
+            JOptionPane.showMessageDialog(null, "La nota debe ser entre 1 y 10");
+        }
     }//GEN-LAST:event_jbGuardarActionPerformed
 
     private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
@@ -199,8 +206,6 @@ private void llenarCombo() {
         modelo.addColumn("Nota");
 
         jtMaterias.setModel(modelo);
-        
-
     }
 
     private void borrarFilas() {
@@ -209,5 +214,5 @@ private void llenarCombo() {
             modelo.removeRow(f);
         }
     }
-
+    
 }

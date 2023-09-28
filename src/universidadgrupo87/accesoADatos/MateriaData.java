@@ -84,7 +84,7 @@ public class MateriaData {
 
         try {
             PreparedStatement ps = con.prepareStatement(sql);
-            JOptionPane.showMessageDialog(null,"hola");
+      
             ps.setString(1, materia.getNombre());
             ps.setInt(2, materia.getAnioMateria());
             ps.setBoolean(3, materia.isActivo());
