@@ -15,7 +15,7 @@ import universidadgrupo87.entidades.Materia;
  * @author FamiliaSic
  */
 public class GestionMateria extends javax.swing.JInternalFrame {
-
+    
     MateriaData matData = new MateriaData();
 
     /**
@@ -23,6 +23,7 @@ public class GestionMateria extends javax.swing.JInternalFrame {
      */
     public GestionMateria() {
         initComponents();
+        validarBuscar();
     }
 
     /**
@@ -122,6 +123,9 @@ public class GestionMateria extends javax.swing.JInternalFrame {
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, 50, 20));
 
         jtCodigo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jtCodigoKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jtCodigoKeyTyped(evt);
             }
@@ -199,7 +203,7 @@ public class GestionMateria extends javax.swing.JInternalFrame {
 
     private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
         // TODO add your handling code here:
-   
+        
         if (validarCampos()) {
             JOptionPane.showMessageDialog(null, "Campos vacios");
         } else {
@@ -209,7 +213,7 @@ public class GestionMateria extends javax.swing.JInternalFrame {
                 boolean Activo = jrbEstado.isSelected();
                 Materia materia = new Materia(nombre, AnioMateria, Activo);
                 matData.guardarMateria(materia);
-
+                
             } else {
                 int codigo = Integer.parseInt(jtCodigo.getText());
                 Materia mat = matData.buscarMateria(codigo);
@@ -248,7 +252,7 @@ public class GestionMateria extends javax.swing.JInternalFrame {
         if (Character.isLetter(evt.getKeyChar())) {
             evt.consume();
         }
-
+        
         if (evt.getKeyChar() == KeyEvent.VK_SPACE) {
             evt.consume();
         }
@@ -270,6 +274,11 @@ public class GestionMateria extends javax.swing.JInternalFrame {
             evt.consume();
         }
     }//GEN-LAST:event_jtAnioKeyTyped
+
+    private void jtCodigoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtCodigoKeyReleased
+        // TODO add your handling code here:
+        validarBuscar();
+    }//GEN-LAST:event_jtCodigoKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -295,9 +304,17 @@ public class GestionMateria extends javax.swing.JInternalFrame {
         jtCodigo.setText("");
         jtNombre.setText("");
     }
-
+    
     private boolean validarCampos() {
         return jtAnio.getText().isEmpty() || jtNombre.getText().isEmpty();
     }
-
+    
+    private void validarBuscar() {
+        if (jtCodigo.getText().isEmpty()) {
+            jbBuscar.setEnabled(false);
+        } else {
+            jbBuscar.setEnabled(true);
+        }        
+    }
+    
 }

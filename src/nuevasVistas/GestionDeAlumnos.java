@@ -222,39 +222,46 @@ public class GestionDeAlumnos extends javax.swing.JInternalFrame {
 
     private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
         // TODO add your handling code here:
-        // TODO add your handling code here:
-        int dni = Integer.parseInt(jtDocumento.getText());
-        Alumno alum = alumData.buscarAlumnoPorDni(dni);
-        String nombre = jtNombre.getText();
-        String apellido = jtApellido.getText();
+        if (validarCampos()) {
+            int dni = Integer.parseInt(jtDocumento.getText());
+            Alumno alum = alumData.buscarAlumnoPorDni(dni);
+            String nombre = jtNombre.getText();
+            String apellido = jtApellido.getText();
 
-        SimpleDateFormat formato = new SimpleDateFormat("dd-MM-yyyy");
-        String fecha = formato.format(jdFechaNacimiento.getDate());
-        //Date fechaNacimiento = (Date) jdFechaNacimiento.getDate();
+            SimpleDateFormat formato = new SimpleDateFormat("dd-MM-yyyy");
+            String fecha = formato.format(jdFechaNacimiento.getDate());
+            //Date fechaNacimiento = (Date) jdFechaNacimiento.getDate();
 
-        LocalDate fechaNac = LocalDate.parse(fecha, DateTimeFormatter.ofPattern("dd-MM-yyyy"));
-        boolean estado = jrbEstado.isSelected();
+            LocalDate fechaNac = LocalDate.parse(fecha, DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+            boolean estado = jrbEstado.isSelected();
 
-        if (alum == null) {
-            //String nombre, String apellido, Date fechaNacimiento, boolean activo, int dni
+            if (alum == null) {
+                //String nombre, String apellido, Date fechaNacimiento, boolean activo, int dni
 
-            Alumno alumno = new Alumno(nombre, apellido, fechaNac, estado, dni);
-            alumData.guardarAlumno(alumno);
-            JOptionPane.showMessageDialog(null, "Se Agrego el Alumno con exito");
+                Alumno alumno = new Alumno(nombre, apellido, fechaNac, estado, dni);
+                alumData.guardarAlumno(alumno);
+            } else {
+                Alumno alumno = new Alumno(alum.getIdAlumno(), nombre, apellido, fechaNac, estado, dni);
+                alumData.modificarAlumno(alumno);
+            }
         } else {
-            Alumno alumno = new Alumno(alum.getIdAlumno(), nombre, apellido, fechaNac, estado, dni);
-            alumData.modificarAlumno(alumno);
-            JOptionPane.showMessageDialog(null, "Se modifico el alumno con exito");
+            JOptionPane.showMessageDialog(null, "Campos vacios");
         }
+
+
     }//GEN-LAST:event_jbGuardarActionPerformed
 
     private void jbEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarActionPerformed
         // TODO add your handling code here:
-        int dni = Integer.parseInt(jtDocumento.getText());
-        Alumno alum = alumData.buscarAlumnoPorDni(dni);
-        alumData.eliminarAlumno(alum.getIdAlumno());
-        JOptionPane.showMessageDialog(null, "El alumno a sido eliminado");
-        borrarCampos();
+        if (validarCampos()) {
+            int dni = Integer.parseInt(jtDocumento.getText());
+            Alumno alum = alumData.buscarAlumnoPorDni(dni);
+            alumData.eliminarAlumno(alum.getIdAlumno());
+            JOptionPane.showMessageDialog(null, "El alumno a sido eliminado");
+            borrarCampos();
+        } else {
+            JOptionPane.showMessageDialog(null, "Campos vacios");
+        }
     }//GEN-LAST:event_jbEliminarActionPerformed
 
     private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
@@ -264,18 +271,17 @@ public class GestionDeAlumnos extends javax.swing.JInternalFrame {
 
     private void jtDocumentoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtDocumentoKeyTyped
         // TODO add your handling code here:
-       
+
         if (Character.isLetter(evt.getKeyChar())) {
             evt.consume();
-             
-        }
- 
-        if (evt.getKeyChar() == KeyEvent.VK_SPACE) {
-            evt.consume();
-             
 
         }
-     
+
+        if (evt.getKeyChar() == KeyEvent.VK_SPACE) {
+            evt.consume();
+
+        }
+
     }//GEN-LAST:event_jtDocumentoKeyTyped
 
     private void jtApellidoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtApellidoKeyTyped
@@ -294,8 +300,7 @@ public class GestionDeAlumnos extends javax.swing.JInternalFrame {
 
     private void jtDocumentoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtDocumentoKeyReleased
         // TODO add your handling code here:
-        validarCampos();
-         validarBuscar();
+        validarBuscar();
     }//GEN-LAST:event_jtDocumentoKeyReleased
 
 
@@ -325,16 +330,20 @@ public class GestionDeAlumnos extends javax.swing.JInternalFrame {
         jtNombre.setText("");
         jtApellido.setText("");
         jrbEstado.setSelected(false);
-        jdFechaNacimiento.setDateFormatString("");
+        jdFechaNacimiento.setDate(null);
 
     }
 
     private boolean validarCampos() {
-        if (jtApellido.getText().isEmpty() || jtDocumento.getText().isEmpty() || jtNombre.getText().isEmpty()) {
-            
+        if (jdFechaNacimiento.getDate() != null) {
+            if (jtApellido.getText().isEmpty() || jtDocumento.getText().isEmpty() || jtNombre.getText().isEmpty()) {
+                return false;
+            } else {
+                return true;
+            }
+        } else {
+            return false;
         }
-       
-        return false;
 
     }
 
